@@ -1,0 +1,21 @@
+from pyspark.sql.functions import col
+df=df.filter(not contains(col("id"),'.'))
+
+With cte_hsal
+(
+select empid,name,salary,dense_rank() over (order by salary desc) as rno from emp
+)
+
+
+select empid,name,salary from 
+(select empid,name,salary,dense_rank() over (order by salary desc) as rno from emp) t where t.rno=2
+
+select t1.a as t1a,t2.a as t2a from table1 t1
+left join table2 t2 on t1.a=t2.a
+
+1 1
+1 1
+1 1
+1 1
+2 2
+null null
